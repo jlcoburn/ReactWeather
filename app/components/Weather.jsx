@@ -3,12 +3,29 @@ var WeatherForm = require('WeatherForm');
 var WeatherMessage = require('WeatherMessage');
 
 var Weather = React.createClass({
+getInitialState: function(){
+  return {
+    location: 'Miami',
+    temp: 88
+  }
+},
+
+handleSearch: function(location) {
+  this.setState({
+    location: location,
+    temp: Math.floor(Math.random()*(100-40)+40)
+  });
+},
+
   render: function () {
+    var location = this.state.location;
+    var temp = this.state.temp;
     return (
+
       <div>
         <h3>Get Weather</h3>
-        <WeatherForm/>
-        <WeatherMessage/>
+        <WeatherForm onSearch = {this.handleSearch}/>
+        <WeatherMessage location={location} temp={temp}/>
  
       </div>
     )
