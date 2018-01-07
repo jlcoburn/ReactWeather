@@ -16,19 +16,13 @@ handleSearch: function(location) {
   openWeatherMap.getTemp(location).then(function(temp) {
     that.setState({
       location: location,
-      temp: temp
+      temp: Math.round(temp)
     });
   }, function(errorMessage) {
     alert(errorMessage);
   });
   
-  // openWeatherMap.getTemp(location).then(function(temp) {
-  //   that.SetState({
-  //     location: location,
-  //     temp: temp
-  //   }, function(errorMessage) {
-  //   alert(errorMessage);
-  // });
+
 },
 
   render: function () {
