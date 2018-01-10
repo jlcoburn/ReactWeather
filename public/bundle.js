@@ -26601,9 +26601,18 @@
 
 	var About = function About(props) {
 	  return React.createElement(
-	    'h3',
+	    'div',
 	    null,
-	    'About Component'
+	    React.createElement(
+	      'h3',
+	      null,
+	      'About Page'
+	    ),
+	    React.createElement(
+	      'p',
+	      null,
+	      'This is a simple weather app built in React.'
+	    )
 	  );
 	};
 
@@ -26619,9 +26628,18 @@
 
 	var Examples = function Examples(props) {
 	  return React.createElement(
-	    'h3',
+	    'div',
 	    null,
-	    'Examples component'
+	    React.createElement(
+	      'h3',
+	      null,
+	      'Examples Page'
+	    ),
+	    React.createElement(
+	      'p',
+	      null,
+	      'This is an example page'
+	    )
 	  );
 	};
 
