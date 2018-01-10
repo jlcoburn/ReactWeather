@@ -2,11 +2,11 @@ var React = require('react');
 
 
 
-var Examples = (props) => {
+var Examples = () => {
   return (
     <div>
       <h3>Examples Page</h3>
-      <p>This is an example page</p>
+      <p>This is an example page for weather app.</p>
     </div>
   )
 };
