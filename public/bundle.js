@@ -26714,23 +26714,60 @@
 /* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
 	var About = function About(props) {
 	  return React.createElement(
-	    'div',
+	    "div",
 	    null,
 	    React.createElement(
-	      'h3',
-	      null,
-	      'About Page'
+	      "h3",
+	      { className: "text-center" },
+	      "About Page"
 	    ),
 	    React.createElement(
-	      'p',
+	      "p",
 	      null,
-	      'This is a simple weather app built in React.'
+	      "This is a simple weather app built in",
+	      React.createElement(
+	        "a",
+	        { href: "https://reactjs.org" },
+	        " React"
+	      ),
+	      " and styled with ",
+	      React.createElement(
+	        "a",
+	        { href: "https://foundation.zurb.com" },
+	        " Foundation."
+	      )
+	    ),
+	    React.createElement(
+	      "p",
+	      null,
+	      "You can see the code on ",
+	      React.createElement(
+	        "a",
+	        { href: "https://github.com/jlcoburn/ReactWeather" },
+	        "Github."
+	      )
+	    ),
+	    React.createElement(
+	      "p",
+	      null,
+	      "This projet was built following ",
+	      React.createElement(
+	        "a",
+	        { herf: "https://www.udemy.com/the-complete-react-web-app-developer-course/learn/v4/overview" },
+	        "The Complete React Web App Developr Course by Andrew Mead"
+	      ),
+	      " on ",
+	      React.createElement(
+	        "a",
+	        { href: "https://www.udemy.com" },
+	        "Udemy."
+	      )
 	    )
 	  );
 	};
