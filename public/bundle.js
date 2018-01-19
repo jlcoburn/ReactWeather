@@ -25046,36 +25046,55 @@
 
 	  getInitialState: function getInitialState() {
 	    return {
-	      location: 'Miami',
-	      temp: 88
+	      isLoading: false
 	    };
 	  },
 
 	  handleSearch: function handleSearch(location) {
 	    var that = this;
+	    this.setState({ isLoading: true });
+
 	    openWeatherMap.getTemp(location).then(function (temp) {
 	      that.setState({
 	        location: location,
-	        temp: Math.round(temp)
+	        temp: Math.round(temp),
+	        isLoading: false
 	      });
 	    }, function (errorMessage) {
+	      that.setState({ isLoading: false });
 	      alert(errorMessage);
 	    });
 	  },
 
 	  render: function render() {
-	    var location = this.state.location;
-	    var temp = this.state.temp;
+	    var _state = this.state,
+	        isLoading = _state.isLoading,
+	        temp = _state.temp,
+	        location = _state.location;
+
+
+	    function renderMessage() {
+	      if (isLoading) {
+	        return React.createElement(
+	          'h3',
+	          { className: 'text-center' },
+	          'Fetching Weather...'
+	        );
+	      } else if (temp && location) {
+	        return React.createElement(WeatherMessage, { temp: temp, location: location });
+	      }
+	    }
+
 	    return React.createElement(
 	      'div',
 	      null,
 	      React.createElement(
-	        'h3',
-	        null,
+	        'h1',
+	        { className: 'text-center' },
 	        'Get Weather'
 	      ),
 	      React.createElement(WeatherForm, { onSearch: this.handleSearch }),
-	      React.createElement(WeatherMessage, { location: location, temp: temp })
+	      renderMessage()
 	    );
 	  }
 	});
@@ -25113,7 +25132,7 @@
 	        React.createElement('input', { type: 'text', placeholder: 'Enter city ', ref: 'location' }),
 	        React.createElement(
 	          'button',
-	          null,
+	          { className: 'button expanded hollow' },
 	          'Get Weather'
 	        )
 	      )
@@ -25127,7 +25146,7 @@
 /* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var React = __webpack_require__(8);
 
@@ -25136,14 +25155,14 @@
 	      location = _ref.location;
 
 	  return React.createElement(
-	    'div',
+	    "div",
 	    null,
 	    React.createElement(
-	      'h3',
-	      null,
-	      'It is ',
+	      "h3",
+	      { className: "text-center" },
+	      "It is ",
 	      temp,
-	      ' in ',
+	      " in ",
 	      location
 	    )
 	  );
